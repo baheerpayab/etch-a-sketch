@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Etch-A-Sketch</title>
+</head>
+    <body>
+        <h1>Etch-A-Sketch</h1>
+        <div class="elementsContainer">
+            <div class="btnSidebar">
+                <input type="color" id="colorPicker" onchange="clickColor(0, -1, -1, 5)" value="#ff0000" style="width:85%;">
+                <button id="color">Color</button>
+                <button id="rainbow">Rainbow</button>
+                <button id="highlighter">Highlight</button>
+                <button id="shader">Shade</button>
+                <button id="eraser">Eraser</button>
+                <button id="clear">Clear</button>
+            </div>
+            <div id="grid">
+                <div class="gridContainer" id="gridContainer"></div>
+                <div class="gridSize">
+                    <input type="range" min="1" max="64" value="16" class="slider" id="gridSize">
+                    <output id="sliderValue"></output>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

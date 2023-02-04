@@ -1,0 +1,35 @@
+body {
+    margin: auto;
+    text-align: center;
+}
+
+.elementsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btnSidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.gridContainer {
+    display: grid;
+    border: 2px solid black;
+    width: 500px;
+    height: 500px;
+}
+
+.gridDiv {
+    user-select: none;
+    /*box-sizing: border-box;
+    float: left;
+    border: none;*/
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
