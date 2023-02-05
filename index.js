@@ -107,12 +107,12 @@ function color(gridDiv) {
         gridDiv.target.style.backgroundColor = `hsl(${HSL[0]}, ${HSL[1]}%, ${HSL[2]}%)`;
     } else if (shadeBtn.classList.contains("active")) {
         let rgbColor = gridDiv.target.style.backgroundColor;
-        console.log(rgbColor);
+        //console.log(rgbColor);
         let rgbArray = rgbColor.substring(4, rgbColor.length-1)
         .replace(/ /g, '')
         .split(',');;
         //console.log(rgbArray);
-        let HSL = rgbToHsl(rgbArray[0], rgbArray[1], rgbArray[2]);
+        let HSL = RGBToHSL(rgbArray[0], rgbArray[1], rgbArray[2]);
         //console.log(HSL);
         let newL = HSL[2] - 5;
         HSL[2] = newL;
@@ -122,28 +122,24 @@ function color(gridDiv) {
 
     }
 
-function rgbToHsl(r, g, b) {
-    r /= 255, g /= 255, b /= 255;
-    
-    var max = Math.max(r, g, b), min = Math.min(r, g, b);
-    var h, s, l = (max + min) / 2;
-    
-    if (max == min) {
-        h = s = 0; // achromatic
-    } else {
-        var d = max - min;
-        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    
-        switch (max) {
-        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-        case g: h = (b - r) / d + 2; break;
-        case b: h = (r - g) / d + 4; break;
-        }
-    
-        h /= 6;
-    
-    }
-    return [ h * 100, s * 100, l * 100];
-}
+    const RGBToHSL = (r, g, b) => {
+        r /= 255;
+        g /= 255;
+        b /= 255;
+        const l = Math.max(r, g, b);
+        const s = l - Math.min(r, g, b);
+        const h = s
+          ? l === r
+            ? (g - b) / s
+            : l === g
+            ? 2 + (b - r) / s
+            : 4 + (r - g) / s
+          : 0;
+        return [
+          60 * h < 0 ? 60 * h + 360 : 60 * h,
+          100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
+          (100 * (2 * l - s)) / 2,
+        ];
+      };
       
 gridSetup(slider.value);
