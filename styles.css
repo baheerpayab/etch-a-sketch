@@ -198,6 +198,10 @@ input[type=range] {
     cursor: pointer;
     margin-top: -6px;
   }
+
+  input[type=range]::-moz-range-thumb:hover {
+    background: #828282;
+  }
   
   /* IE */
   input[type=range]::-ms-thumb {
@@ -208,6 +212,10 @@ input[type=range] {
     background: #c4c4c4;
     cursor: pointer;
     margin-top: -6px;
+  }
+
+  input[type=range]::-ms-thumb:hover {
+    background: #828282;
   }
 
 /* CUSTOM SLIDER TRACK */
