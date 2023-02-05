@@ -33,3 +33,6 @@ body {
     -ms-user-select: none;
 }
 
+.active {
+    background-color: aqua;
+}
